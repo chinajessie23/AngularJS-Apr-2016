@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script type="text/javascript" src="index2.js"></script>
+    <style type="text/css">
+
+    .bg{
+         background: #666699;   
+        }
+    .bg1{
+        background:#cccc00}
+
+    .bg2{
+        background:#cc0066}
+    .bg3{
+        background:#336600}  
+    .bg4{
+        background:#000099}
+    .default {
+     	color:black;
+        background-color:grey;
+        font-weight: bold;
+        text-align:center
+
+     }
+     .default2 {
+        color:black;
+        background-color:#669999;
+     }
+     .yellow {
+       background-color:yellow;
+       font-weight: bold;
+       text-align:center
+
+     }
+
+     .yellow2 {
+        background-color:#ffff99;
+     }
+
+     .red {
+        background-color:red;
+        font-weight: bold;
+        text-align:center
+
+     }
+
+      .red2 {
+        background-color:#ff6666;
+     }
+
+     .green {
+        background-color:green;
+        font-weight: bold;
+        text-align:center
+
+     }
+
+     .green2 {
+        background-color:#00ff99;
+     }
+
+     .blue {
+        background-color:blue;
+        font-weight: bold;
+        text-align:center
+
+     }
+     .blue2 {
+        background-color:#99ccff;
+     }
+
+    </style>
+  </head>
+
+  <body ng-app="MyModule">
+
+
+    <div ng-controller="MyController as ctrl" ng-init="ctrl.themeSelected=ctrl.myTheme0" >
+            <div ng-class="ctrl.themeSelected.bg">
+
+        <div style="text-align:center;font-weight: bold"> UI Theme Picker<br>
+        <input type="radio" name="theme" ng-model="ctrl.themeSelected" ng-value="ctrl.myTheme0" >Default
+		<input type="radio" name="theme" ng-model="ctrl.themeSelected" ng-value="ctrl.myTheme1">Yellow
+		<input type="radio" name="theme" ng-model="ctrl.themeSelected" ng-value="ctrl.myTheme2">Red
+		<input type="radio" name="theme" ng-model="ctrl.themeSelected" ng-value="ctrl.myTheme3">Green
+        <input type="radio" name="theme" ng-model="ctrl.themeSelected" ng-value="ctrl.myTheme4">Blue
+
+		<div><label> Selected Theme: </label> <span ng-bind="ctrl.themeSelected.name"></span>
+        <div ng-class="ctrl.themeSelected.name"> {{ctrl.themeSelected.content}}</div>
+
+        <div ng-class="ctrl.themeSelected.name2"> {{ctrl.themeSelected.content2}}</div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>By Jiasi Chen
+        </div>
+    </div>
+
+
+
+
+    </div>
+  </body>
+</html>
