@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <style type="text/css">
+    .box {
+    	width:200px;
+    	height: 200px;
+    	background-color:blue;
+    }
+    .white {
+     	color:white;
+     }
+
+    .green {
+     	color:green;
+     }
+    .strong{
+    	font-weight: bold;
+    }
+
+
+  
+   
+    </style>
+  </head>
+
+  <body ng-app="MyModule">
+    <div ng-controller="MyController as ctrl">
+    	<!-- <div ng-bind="ctrl.greeting"></div> -->
+
+<!--     	<div class= "box" ng-class="ctrl.textColor"> some text in box</div>
+ -->    	 <!-- <div class= "box green"> green text in box </div> -->
+
+        <!-- {{greeting + '!!!!'}} how you append string to value -->
+
+        <!-- display entries in string array -->
+         <div ng-repeat="name in ctrl.myArray"> 
+         	<label ng-bind="name"></label>
+         </div>
+
+        <!-- display entries in an object array -->
+         <div ng-repeat="person in ctrl.myNames"> 
+         	Person #{{$index+1}}:
+         	<!-- library for ng-repeat: $first,$middle,$last,$even,$odd;-->
+         	<label ng-bind="person.name"></label>
+         </div>
+
+
+        <!-- display entries in an object -->
+         <div ng-repeat="(key,value) in ctrl.myPerson"> 
+         	key #{{$index+1}}:
+         	<!-- library for ng-repeat: $first,$middle,$last,$even,$odd;-->
+         	<label ng-bind="value"></label>
+         </div>
+
+         <input type="text" ng-model="ctrl.myName.name"> 
+         <!-- ng-bind does 2-way binding. If no myName.name in ctrl, Angular creates it. -->
+         <label ng-bind="ctrl.myName.name"></label>
+        <!-- create myName.name in ctrl. -->
+		<div class= "box" ng-class="ctrl.myName.name"> some text in box</div>
+		{{ctrol.myName.name}}
+
+
+		<input type="radio" name="pet" ng-model="ctrl.petSelected" ng-value="ctrl.myDog">Dog
+		<input type="radio" name="pet" ng-model="ctrl.petSelected" ng-value="ctrl.myCat">Cat
+		<input type="radio" name="pet" ng-model="ctrl.petSelected" ng-value="ctrl.myRat">Rat
+		<div><label> Selected Pet</label> <span ng-bind="ctrl.petSelected.name"></span></div>
+
+
+
+    </div>
+  </body>
+</html>
