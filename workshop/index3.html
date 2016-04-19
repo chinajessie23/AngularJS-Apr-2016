@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script type="text/javascript" src="index3.js"></script>
+    <style type="text/css">
+   
+    </style>
+  </head>
+
+  <body ng-app="MyModule">
+    <div ng-controller="MyController as ctrl">
+
+        <div ng-show="ctrl.isShowMode" ng-hide="ctrl.shouldCancel" >First Name: {{ctrl.fname}}</div>
+        <div ng-show="ctrl.isShowMode" ng-hide="ctrl.shouldCancel">Last Name: {{ctrl.lname}}</div>
+
+        <div ng-hide="ctrl.isShowMode" ng-hide="ctrl.shouldUpdate" ng-show="ctrl.shouldCancel">First Name: Jiasi</div>
+        <div ng-hide="ctrl.isShowMode" ng-hide="ctrl.shouldUpdate" ng-show="ctrl.shouldCancel">Last Name: Chen</div>
+
+        <div ng-show="ctrl.isShowMode">email:jiasichen@yahoo.com</div>
+
+        <button ng-show="ctrl.isShowMode" ng-click="ctrl.onEditClick()">Edit</button>     
+        <input type="text" ng-show="ctrl.isEditMode" ng-model="ctrl.fname" ng-class="ctrl.fname">
+<!--         <div ng-bind="ctrl.fname"></div>
+ -->        <input type="text" ng-show="ctrl.isEditMode" ng-model="ctrl.lname" ng-class="ctrl.fname">
+        <!-- <div ng-bind="ctrl.lname"></div> -->
+        <div ng-show="ctrl.isEditMode" ng-model="ctrl.email"></div>
+        <div ng-show="ctrl.isEditMode" ng-bind="::ctrl.email"></div>
+
+        <button ng-show="ctrl.isEditMode" ng-click="ctrl.onDoneClick()">done</button>
+        <button ng-show="ctrl.isEditMode" ng-click="ctrl.onCancelClick()">cancel</button>
+
+
+    </div>
+  </body>
+</html>

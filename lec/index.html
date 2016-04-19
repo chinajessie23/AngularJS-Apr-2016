@@ -7,7 +7,7 @@
     .box {
     	width:200px;
     	height: 200px;
-    	background-color:blue;
+    	background-color:pink;
     }
     .white {
      	color:white;
@@ -35,6 +35,7 @@
 
         <!-- {{greeting + '!!!!'}} how you append string to value -->
 
+        <!-- ***************show text**************** -->
         <!-- display entries in string array -->
          <div ng-repeat="name in ctrl.myArray"> 
          	<label ng-bind="name"></label>
@@ -62,11 +63,23 @@
 		<div class= "box" ng-class="ctrl.myName.name"> some text in box</div>
 		{{ctrol.myName.name}}
 
-
+        <!-- ***************radio button**************** -->
 		<input type="radio" name="pet" ng-model="ctrl.petSelected" ng-value="ctrl.myDog">Dog
 		<input type="radio" name="pet" ng-model="ctrl.petSelected" ng-value="ctrl.myCat">Cat
 		<input type="radio" name="pet" ng-model="ctrl.petSelected" ng-value="ctrl.myRat">Rat
 		<div><label> Selected Pet</label> <span ng-bind="ctrl.petSelected.name"></span></div>
+
+        <input type="checkbox" ng-model="ctrl.isBoxChecked">
+        <div ng-bind="ctrl.isBoxChecked"></div>
+        <!-- if use :: before the field, will unwatch. This value doesn't get changed -->
+        <!-- <div ng-bind="::ctrl.isBoxChecked"></div> -->
+
+
+        <div ng-show="ctrl.isBoxChecked" class="redText">this shows up if isBoxChecked is true</div>
+        <div ng-hide="ctrl.isBoxChecked" class="greenText">this shows if isBoxChecked is false</div>
+
+        <button ng-click="ctrl.onUserClick()">toggle button</button>
+
 
 
 

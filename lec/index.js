@@ -46,6 +46,11 @@ myMod.controller('MyController',function(){
 	self.myRat={
 		name:'rr'
 	};
+	self.isBoxChecked=true;
+
+	self.onUserClick=function(){
+		self.isBoxChecked=!self.isBoxChecked;		
+	};
 
 	});
 
