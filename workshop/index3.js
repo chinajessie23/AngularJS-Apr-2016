@@ -4,7 +4,6 @@ myMod.controller('MyController',function(){
 	var self = this;
 	self.isShowMode=true;
 	self.isEditMode=false;
-	self.shouldUpdate=false;
 	self.shouldCancel=false;
 
 	self.fname="Jiasi";
@@ -14,22 +13,18 @@ myMod.controller('MyController',function(){
 	self.onEditClick=function(){
 		self.isShowMode=false;
 		self.isEditMode=true;
-		self.shouldUpdate=false;
 		self.shouldCancel=false;
 	};
 
 	self.onCancelClick=function(){
 		self.isShowMode=true;
 		self.isEditMode=false;
-		self.shouldUpdate=false;
 		self.shouldCancel=true;
 	}
 
 	self.onDoneClick=function(){
-		self.fname=self.fname;
 		self.isShowMode=true;
 		self.isEditMode=false;
-		self.shouldUpdate=true;
 		self.shouldCancel=false;
 	}
 

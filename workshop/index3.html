@@ -11,11 +11,10 @@
   <body ng-app="MyModule">
     <div ng-controller="MyController as ctrl">
 
-        <div ng-show="ctrl.isShowMode" ng-hide="ctrl.shouldCancel">First Name: {{ctrl.fname}}</div>
-        <div ng-show="ctrl.isShowMode" ng-hide="ctrl.shouldCancel">Last Name: {{ctrl.lname}}</div>
-
-        <div  ng-show="ctrl.shouldCancel">First Name: Jiasi</div>
-        <div  ng-show="ctrl.shouldCancel">Last Name: Chen</div>
+        <div  ng-hide="ctrl.shouldCancel"ng-hide="ctrl.isEditMode">First Name: {{ctrl.fname}}</div>
+        <div  ng-hide="ctrl.shouldCancel" ng-hide="ctrl.isEditMode">Last Name: {{ctrl.lname}}</div>
+        <div ng-show="ctrl.shouldCancel">First Name: {{::ctrl.fname}}</div>
+        <div ng-show="ctrl.shouldCancel">Last Name: {{::ctrl.lname}}</div>
 
         <div ng-show="ctrl.isShowMode">email:jiasichen@yahoo.com</div>
 
@@ -23,11 +22,8 @@
         <input type="text" ng-show="ctrl.isEditMode" ng-model="ctrl.fname">
         <input type="text" ng-show="ctrl.isEditMode" ng-model="ctrl.lname">
 
-        <div ng-show="ctrl.isEditMode" ng-bind="::ctrl.email"></div>
-
         <button ng-show="ctrl.isEditMode" ng-click="ctrl.onDoneClick()">done</button>
         <button ng-show="ctrl.isEditMode" ng-click="ctrl.onCancelClick()">cancel</button>
-
 
     </div>
   </body>
