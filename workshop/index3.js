@@ -16,8 +16,6 @@ myMod.controller('MyController',function(){
 		self.isEditMode=true;
 		self.shouldUpdate=false;
 		self.shouldCancel=false;
-
-			
 	};
 
 	self.onCancelClick=function(){
@@ -25,8 +23,6 @@ myMod.controller('MyController',function(){
 		self.isEditMode=false;
 		self.shouldUpdate=false;
 		self.shouldCancel=true;
-
-
 	}
 
 	self.onDoneClick=function(){
@@ -35,16 +31,6 @@ myMod.controller('MyController',function(){
 		self.isEditMode=false;
 		self.shouldUpdate=true;
 		self.shouldCancel=false;
-
 	}
 
 	});
-
-
-/**
-the traditional scope way
-*/
-// myMod.controller('MyController',function($scope){
-// 	$scope.greeting = 'Hello Jiasi';
-// 	$scope.age = '22';
-// });
