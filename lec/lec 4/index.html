@@ -22,13 +22,14 @@
         </div>
 
         <div>
-        needs repair: <span ng-bind="ctrl.needsRepair()"></span>
+        needs repair: <span ng-bind="ctrl.car.needsRepair()"></span>
         </div>
 
         <div>
         age: <span ng-bind = "ctrl.car.age"></span>
         </div>
 
+        <h3>Display Colors</h3>
         <div ng-repeat ="color in ctrl.myColors">
             <div ng-bind="color.name"></div>
         </div>

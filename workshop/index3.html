@@ -11,17 +11,17 @@
   <body ng-app="MyModule">
     <div ng-controller="MyController as ctrl">
 
-        <div  ng-hide="ctrl.shouldCancel" ng-hide="ctrl.isEditMode">First Name: {{ctrl.fname}}</div>
-        <div  ng-hide="ctrl.shouldCancel" ng-hide="ctrl.isEditMode">Last Name: {{ctrl.lname}}</div>
+        <div  ng-hide="ctrl.isEditMode">First Name: {{ctrl.fname}}</div>
+        <div  ng-hide="ctrl.isEditMode">Last Name: {{ctrl.lname}}</div>
 
    <!--      this does not work because :: will bind the value and will remove the watchers once the first digest cycle is run and the value changes from undefined to defined for the first time. -->
 
 <!--         <div ng-show="ctrl.shouldCancel">First Name: {{::ctrl.fname}}</div>
         <div ng-show="ctrl.shouldCancel">Last Name: {{::ctrl.lname}}</div> -->
 
-        <div ng-show="ctrl.isShowMode">email:jiasichen@yahoo.com</div>
+        <div ng-hide="ctrl.isEditMode">email:jiasichen@yahoo.com</div>
 
-        <button ng-show="ctrl.isShowMode" ng-click="ctrl.onEditClick()">Edit</button>     
+        <button ng-hide="ctrl.isEditMode" ng-click="ctrl.onEditClick()">Edit</button>     
         <input type="text" ng-show="ctrl.isEditMode" ng-model="ctrl.fname">
         <input type="text" ng-show="ctrl.isEditMode" ng-model="ctrl.lname">
 

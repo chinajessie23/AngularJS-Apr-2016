@@ -3,11 +3,15 @@ the traditional scope way: dependency injection of scope in controller
 */
 angular.module('MyModule',[])
 
-.value('COLORS', [
-	{color:'red'},{
-	color:'blue'},{
-	color:'yellow'},{
-	color:'green'}])
+.value('COLORS', [{
+	name: 'red'
+}, {
+	name: 'green'
+}, {
+	name: 'blue'
+}, {
+	name: 'yellow'
+}])
 
 //outer function must return something: reference to the constructor function
 .factory('Car', function() {
