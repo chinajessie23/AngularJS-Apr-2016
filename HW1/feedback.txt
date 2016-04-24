@@ -1,0 +1,10 @@
+Good job Jiasi,
+
+Nice job using objects here and way to keep all the logic in the JavaScript and not have any logic in the markup.  
+
+Keep up the good work!
+
+10/10
+
+Cheers
+GD
