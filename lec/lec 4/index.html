@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+  </head>
+
+  <body ng-app="MyModule">
+    <div ng-controller="MyController as ctrl">
+    	<h1 ng-bind="ctrl.name"></h1>
+        Countdown:<h3 ng-bind="ctrl.count"></h3>
+         <div>
+        Make: <input type="text" ng-model="ctrl.car.make">
+        </div>
+
+        <div>
+        model: <input type="text" ng-model="ctrl.car.model">
+        </div>
+
+        <div>
+        year: <input type="text" ng-model="ctrl.car.year" ng-change="ctrl.car.setYear(ctrl.car.year)">
+        </div>
+
+        <div>
+        needs repair: <span ng-bind="ctrl.car.needsRepair()"></span>
+        </div>
+
+        <div>
+        age: <span ng-bind = "ctrl.car.age"></span>
+        </div>
+
+        <h3>Display Colors</h3>
+        <div ng-repeat ="color in ctrl.myColors">
+            <div ng-bind="color.name"></div>
+        </div>
+    </div>
+  </body>
+</html>

@@ -11,25 +11,22 @@
   <body ng-app="MyModule">
     <div ng-controller="MyController as ctrl">
 
-        <div ng-show="ctrl.isShowMode" ng-hide="ctrl.shouldCancel" >First Name: {{ctrl.fname}}</div>
-        <div ng-show="ctrl.isShowMode" ng-hide="ctrl.shouldCancel">Last Name: {{ctrl.lname}}</div>
+        <div  ng-hide="ctrl.isEditMode">First Name: {{ctrl.fname}}</div>
+        <div  ng-hide="ctrl.isEditMode">Last Name: {{ctrl.lname}}</div>
 
-        <div ng-hide="ctrl.isShowMode" ng-hide="ctrl.shouldUpdate" ng-show="ctrl.shouldCancel">First Name: Jiasi</div>
-        <div ng-hide="ctrl.isShowMode" ng-hide="ctrl.shouldUpdate" ng-show="ctrl.shouldCancel">Last Name: Chen</div>
+   <!--      this does not work because :: will bind the value and will remove the watchers once the first digest cycle is run and the value changes from undefined to defined for the first time. -->
 
-        <div ng-show="ctrl.isShowMode">email:jiasichen@yahoo.com</div>
+<!--         <div ng-show="ctrl.shouldCancel">First Name: {{::ctrl.fname}}</div>
+        <div ng-show="ctrl.shouldCancel">Last Name: {{::ctrl.lname}}</div> -->
 
-        <button ng-show="ctrl.isShowMode" ng-click="ctrl.onEditClick()">Edit</button>     
-        <input type="text" ng-show="ctrl.isEditMode" ng-model="ctrl.fname" ng-class="ctrl.fname">
-<!--         <div ng-bind="ctrl.fname"></div>
- -->        <input type="text" ng-show="ctrl.isEditMode" ng-model="ctrl.lname" ng-class="ctrl.fname">
-        <!-- <div ng-bind="ctrl.lname"></div> -->
-        <div ng-show="ctrl.isEditMode" ng-model="ctrl.email"></div>
-        <div ng-show="ctrl.isEditMode" ng-bind="::ctrl.email"></div>
+        <div ng-hide="ctrl.isEditMode">email:jiasichen@yahoo.com</div>
+
+        <button ng-hide="ctrl.isEditMode" ng-click="ctrl.onEditClick()">Edit</button>     
+        <input type="text" ng-show="ctrl.isEditMode" ng-model="ctrl.fname">
+        <input type="text" ng-show="ctrl.isEditMode" ng-model="ctrl.lname">
 
         <button ng-show="ctrl.isEditMode" ng-click="ctrl.onDoneClick()">done</button>
         <button ng-show="ctrl.isEditMode" ng-click="ctrl.onCancelClick()">cancel</button>
-
 
     </div>
   </body>

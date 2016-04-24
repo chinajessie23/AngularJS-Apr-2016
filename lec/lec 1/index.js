@@ -1,3 +1,4 @@
+// lec 1
 var myMod = angular.module('MyModule',[]);
 
 myMod.controller('MyController',function(){

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script type="text/javascript" src="index2.js"></script>
+    <style type="text/css">
+    .red {
+     	color:red;
+     }
+    .yellow {
+        color:yellow;
+     }
+    .green {
+     	color:green;
+     }
+    </style>
+  </head>
+
+  <body ng-app="MyModule">
+    <div ng-controller="MyController as ctrl">
+        <h3>Folders</h3>
+        <input type="checkbox" name="expand" ng-change="toggleExpand()" ng-model="ctrl.toExpand">Expand All<br>
+        <div>Folder 1</div>
+        <div ng-show="ctrl.toExpand" ng-repeat="name in ctrl.folder1.files"> 
+            <div ng-bind="name"></div>
+         </div>
+
+        <div>Folder 2</div>
+        <div ng-show="ctrl.toExpand" ng-repeat="name in ctrl.folder2.files"> 
+            <div ng-bind="name"></div>
+         </div>
+
+        <div>Folder 3</div>
+        <div ng-show="ctrl.toExpand" ng-repeat="name in ctrl.folder3.files"> 
+            <div ng-bind="name"></div>
+         </div>
+        <br>
+        <!-- input box for adding file to folder -->       
+         file name:<input type="text" ng-model="ctrl.fileName">
+        <button ng-click="ctrl.addFileToFolder()">add</button>
+        <div>Please Select the folder you wish to add the file:</div>
+        <input type="radio" name="folder" ng-model="ctrl.folderSelected" ng-value="ctrl.folder1">Folder 1
+        <input type="radio" name="folder" ng-model="ctrl.folderSelected" ng-value="ctrl.folder2">Folder 2
+        <input type="radio" name="folder" ng-model="ctrl.folderSelected" ng-value="ctrl.folder3">Folder 3
+
+        <br>
+        <h3>Form</h3>
+         Name:<input type="text" ng-model="ctrl.formName"><br>
+         Description:<input type="text" ng-model="ctrl.formDescription">
+        <div>Priority</div>
+        <input type="radio" name="folder" ng-model="ctrl.prioritySelected" ng-value="ctrl.priority.high">High
+        <input type="radio" name="folder" ng-model="ctrl.prioritySelected" ng-value="ctrl.priority.medium">Medium 
+        <input type="radio" name="folder" ng-model="ctrl.prioritySelected" ng-value="ctrl.priority.low">Low
+        <button ng-click="ctrl.addTodo()">add todo</button>
+
+        <br>
+        <h3>Todo List</h3>
+            <font color="ctrl.colorChange">This is some text!</font>
+            <div color="ctrl.colorChange" ng-bind="ctrl.formDescription"></div>
+        <br>
+    </div>
+  </body>
+</html>
