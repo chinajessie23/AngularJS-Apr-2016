@@ -10,11 +10,12 @@ myMod.controller('MyController',function(){
 	self.addFileToFolder=function(){
 		self.folderSelected.files.push(self.fileName);
 	}
-	self.addTodo=function(prioritySelected){
+
+	self.addTodo=function(){
 		self.tmp=angular.copy(self.form);
 		self.tmp.name=self.formName;
 		self.tmp.description=self.formDescription;
-		self.tmp.priority=prioritySelected;
+		self.tmp.priority=self.prioritySelected;
 		self.formList.push(self.tmp);
 	}
 
