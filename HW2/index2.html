@@ -48,15 +48,17 @@
          Name:<input type="text" ng-model="ctrl.formName"><br>
          Description:<input type="text" ng-model="ctrl.formDescription">
         <div>Priority</div>
-        <input type="radio" name="folder" ng-model="ctrl.prioritySelected" ng-value="ctrl.priority.high">High
-        <input type="radio" name="folder" ng-model="ctrl.prioritySelected" ng-value="ctrl.priority.medium">Medium 
-        <input type="radio" name="folder" ng-model="ctrl.prioritySelected" ng-value="ctrl.priority.low">Low
-        <button ng-click="ctrl.addTodo()">add todo</button>
-
+        <input type="radio" name="folder" ng-model="prioritySelected" ng-value="ctrl.high">High
+        <input type="radio" name="folder" ng-model="prioritySelected" ng-value="ctrl.medium">Medium 
+        <input type="radio" name="folder" ng-model="prioritySelected" ng-value="ctrl.low">Low
+        <button ng-click="ctrl.addTodo(prioritySelected)">add todo</button>
         <br>
         <h3>Todo List</h3>
-            <font color="ctrl.colorChange">This is some text!</font>
-            <div color="ctrl.colorChange" ng-bind="ctrl.formDescription"></div>
+        <div ng-repeat="f in ctrl.formList"> 
+               <div ng-class="f.priority">To do #{{$index+1}}</div>
+               <div ng-class="f.priority" ng-bind="f.name"></div>
+               <div ng-class="f.priority" ng-bind="f.description"></div>
+        </div>
         <br>
     </div>
   </body>

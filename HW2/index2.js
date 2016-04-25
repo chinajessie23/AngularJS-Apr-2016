@@ -10,16 +10,12 @@ myMod.controller('MyController',function(){
 	self.addFileToFolder=function(){
 		self.folderSelected.files.push(self.fileName);
 	}
-	self.addTodo=function(){
-		if(self.prioritySelcted==self.priority.high){
-			self.colorChange='red';
-		}
-		if(self.prioritySelcted==self.priority.high){
-			self.colorChange='yellow';
-		}
-		if(self.prioritySelcted==self.priority.high){
-			self.colorChange='green';
-		}
+	self.addTodo=function(prioritySelected){
+		self.tmp=angular.copy(self.form);
+		self.tmp.name=self.formName;
+		self.tmp.description=self.formDescription;
+		self.tmp.priority=prioritySelected;
+		self.formList.push(self.tmp);
 	}
 
 	self.folder1={
@@ -37,9 +33,14 @@ myMod.controller('MyController',function(){
 		files:['file1','file2','file3']
 	}
 
-	self.priority={
-		high:'high',
-		medium:'medium',
-		low:'low'
+	self.high='red';
+	self.medium='yellow';
+	self.low='green';
+
+	self.form={
+		name:"",
+		description:"",
+		priority:""
 	}
+	self.formList=[];
 	});

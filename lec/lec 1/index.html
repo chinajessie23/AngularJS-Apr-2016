@@ -19,8 +19,6 @@
     .strong{
     	font-weight: bold;
     }
-
-
   
    
     </style>
@@ -57,7 +55,7 @@
          </div>
 
          <input type="text" ng-model="ctrl.myName.name"> 
-         <!-- ng-bind does 2-way binding. If no myName.name in ctrl, Angular creates it. -->
+         <!-- ng-model does 2-way binding. If no myName.name in ctrl, Angular creates it. -->
          <label ng-bind="ctrl.myName.name"></label>
         <!-- create myName.name in ctrl. -->
 		<div class= "box" ng-class="ctrl.myName.name"> some text in box</div>
