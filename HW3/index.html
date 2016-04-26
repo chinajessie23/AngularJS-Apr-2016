@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <!-- need services first since index depends on services. -->
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="services.js"></script>
+
+  </head>
+
+  <body ng-app="MyModule">
+    <div ng-controller="MyController as ctrl">
+        <div>
+        Student Name: <input type="text" ng-model="ctrl.student">
+        </div>
+
+        <div>
+        <h3>Add Asignment:</h3>
+        name: <input type="text" ng-model="ctrl.assignment.name">
+        grade: <input type="text" ng-model="ctrl.assignment.grade">
+        <button ng-click="ctrl.addAssignment()">add assignment</button>
+        </div>
+
+        <!-- Display assignments: -->
+        
+        <h3>Assignments:</h3>
+        <div ng-repeat="assignment in ctrl.assignmentList"> 
+            Assignment name #{{$index+1}}:  <span ng-bind="assignment.name"></span><br>
+            Score #{{$index+1}}:  <span ng-bind="assignment.grade"></span>
+            <button ng-click="ctrl.deleteAssignment(assignment.name)"> delete </button>
+
+
+        </div>
+
+        <!-- Display info: -->
+        
+        <h3>Stats for {{ctrl.student}}:</h3>
+<!--         Average: <div ng-bind="ctrl.calculateAverage(ctrl.assignmentList)"></div> -->
+
+        Average: <div ng-bind="ctrl.average"></div>
+
+
+    </div>
+  </body>
+</html>

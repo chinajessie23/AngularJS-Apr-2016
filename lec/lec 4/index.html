@@ -2,7 +2,10 @@
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <!-- need services first since index depends on services. -->
     <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="services.js"></script>
+
   </head>
 
   <body ng-app="MyModule">
@@ -29,10 +32,18 @@
         age: <span ng-bind = "ctrl.car.age"></span>
         </div>
 
+
+         <div>
+        result : <span ng-bind="ctrl.max"></span>
+        </div>
+
         <h3>Display Colors</h3>
         <div ng-repeat ="color in ctrl.myColors">
             <div ng-bind="color.name"></div>
         </div>
+
+
+
     </div>
   </body>
 </html>

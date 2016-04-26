@@ -1,45 +1,18 @@
 /** lec 4
 the traditional scope way: dependency injection of scope in controller
 */
+
 angular.module('MyModule',[])
 
-.value('COLORS', [{
-	name: 'red'
-}, {
-	name: 'green'
-}, {
-	name: 'blue'
-}, {
-	name: 'yellow'
-}])
-
-//outer function must return something: reference to the constructor function
-.factory('Car', function() {
-    function Car(make, model) {
-        this.make = make;
-        this.model = model;
-    }
-
-    Car.prototype.setYear = function(year) {
-         this.year = year;
-         this.age = 2016 - parseInt(year);
-    }
-
-    Car.prototype.needsRepair = function() {
-        if (this.age > 10) { 
-            return true;
-        } else {
-            return false;
-        }
-    }
-	return Car;
-})
-
 //put in controller the name of the factory(not constructor)
-.controller('MyController',function($timeout,$interval,$log,$scope,Car,COLORS){
+.controller('MyController',function($timeout,$interval,$log,$scope,Car,COLORS,MathExpressionsCalc){
 	var self = this;
 	self.myColors = COLORS;
 	self.car = new Car('ford','explorer');
+
+
+	self.result = MathExpressionsCalc.calculateSum(1,2);
+	self.max = MathExpressionsCalc.getMax(1,2);
 
 	$log.info('info function');
 	$log.log('normal log');
