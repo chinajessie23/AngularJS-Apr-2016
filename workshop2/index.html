@@ -17,7 +17,7 @@
         <div>
         <h3>Add Asignment:</h3>
         name: <input type="text" ng-model="ctrl.assignment.name">
-        grade: <input type="text" ng-model="ctrl.assignment.grade">
+        grade: <input type="number" ng-model="ctrl.assignment.grade">
         <button ng-click="ctrl.addAssignment()">add assignment</button>
         </div>
 
@@ -35,9 +35,10 @@
         <!-- Display info: -->
         
         <h3>Stats for {{ctrl.student}}:</h3>
-<!--         Average: <div ng-bind="ctrl.calculateAverage(ctrl.assignmentList)"></div> -->
-
         Average: <div ng-bind="ctrl.average"></div>
+        Grade: <div ng-bind="ctrl.grade"></div>
+        Pass: <div ng-bind="ctrl.pass"></div>
+
 
 
     </div>
