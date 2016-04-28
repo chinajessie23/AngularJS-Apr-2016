@@ -1,13 +1,13 @@
 angular.module('MyModule',[])
 
-//put in controller the name of the factory(not constructor)
 .controller('MyController',function($scope,Assignment,AssignmentChanger,GradeCalculation){
 	var self = this;
 	self.student="";
 	self.assignmentList=[];
+	self.assignment=new Assignment("",0);
 
 	self.addAssignment=function(){
-		self.assignment=new Assignment("",0);
+		self.assignment=new Assignment(self.assignment.name,self.assignmetn.grade);
 		AssignmentChanger.addAssignment(self.assignment,self.assignmentList);
 
 		self.average=GradeCalculation.calculateAverage(self.assignmentList);

@@ -1,5 +1,3 @@
-// angular.module('MyServices',[])
-//find box called MyModule and add the things to it.
 angular.module('MyModule')
 
 .factory('Assignment', function() {

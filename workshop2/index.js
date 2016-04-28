@@ -5,22 +5,23 @@ angular.module('MyModule',[])
 	var self = this;
 	self.student="";
 	self.assignmentList=[];
+	self.assignment=new Assignment("",0);
 
 	self.addAssignment=function(){
-		self.assignment=new Assignment("",0);
-		AssignmentChanger.addAssignment(self.assignment,self.assignmentList);
-
-		self.average=GradeCalculation.calculateAverage(self.assignmentList);
-		self.grade=GradeCalculation.calculateGrade(self.assignmentList);
-		self.pass=GradeCalculation.pass(self.assignmentList);
+		self.Newassignment=new Assignment(self.assignment.name,self.assignment.grade);
+		AssignmentChanger.addAssignment(self.Newassignment,self.assignmentList);
+		calcStats();
 	}
 
 	self.deleteAssignment=function(nameToDelete){
  		AssignmentChanger.deleteAssignment(nameToDelete,self.assignmentList);
+ 		calcStats();
+	};
 
+	function calcStats() {
     	self.average=GradeCalculation.calculateAverage(self.assignmentList);
 		self.grade=GradeCalculation.calculateGrade(self.assignmentList);
 		self.pass=GradeCalculation.pass(self.assignmentList);
-	};
+	}
 });
 
