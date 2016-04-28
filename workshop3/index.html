@@ -2,7 +2,6 @@
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-    <!-- need services first since index depends on services. -->
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript" src="services.js"></script>
 
@@ -11,35 +10,28 @@
   <body ng-app="MyModule">
     <div ng-controller="MyController as ctrl">
         <div>
-        Student Name: <input type="text" ng-model="ctrl.student">
-        </div>
+         Name: <input type="text" ng-model="ctrl.name"><br>
+         Age: <input type="text" ng-model="ctrl.age"><br>
+        <input type="checkbox" name="explicit" value="Over 18">Explicit<br>
+    </div>
 
-        <div>
-        <h3>Add Asignment:</h3>
-        name: <input type="text" ng-model="ctrl.assignment.name">
-        grade: <input type="number" ng-model="ctrl.assignment.grade">
-        <button ng-click="ctrl.addAssignment()">add assignment</button>
-        </div>
+    <div>Genres:</div>
+        <input type="radio" name="genres" ng-model="ctrl.genresSelected" ng-value="ctrl.genres1">Rap
+        <input type="radio" name="genres" ng-model="ctrl.genresSelected" ng-value="ctrl.genres2">Pop
+        <input type="radio" name="genres" ng-model="ctrl.genresSelected" ng-value="ctrl.genres3">Rock
+    <br>
 
-        <!-- Display assignments: -->
-        
-        <h3>Assignments:</h3>
-        <div ng-repeat="assignment in ctrl.assignmentList"> 
-            Assignment name #{{$index+1}}:  <span ng-bind="assignment.name"></span><br>
-            Score #{{$index+1}}:  <span ng-bind="assignment.grade"></span>
-            <button ng-click="ctrl.deleteAssignment(assignment.name)"> delete </button>
+    <div>Please Select your songs:</div>
+         <input type="checkbox" name="song" ng-model="ctrl.song1checked" ng-change="ctrl.selectSong()">{{ctrl.genresSelected.song1}}<br>
+         <input type="checkbox" name="song" ng-model="ctrl.song2checked" ng-change="ctrl.selectSong()">{{ctrl.genresSelected.song2}}<br>
+         <input type="checkbox" name="song" ng-model="ctrl.song3checked" ng-change="ctrl.selectSong()">{{ctrl.genresSelected.song3}}<br>
+    <br>
 
-
-        </div>
-
-        <!-- Display info: -->
-        
-        <h3>Stats for {{ctrl.student}}:</h3>
-        Average: <div ng-bind="ctrl.average"></div>
-        Grade: <div ng-bind="ctrl.grade"></div>
-        Pass: <div ng-bind="ctrl.pass"></div>
-
-
+    <h3>Song List</h3>
+    <div ng-repeat="f in ctrl.songList">
+        <div ng-bind="f"></div>
+    </div>
+    <button ng-click="save(assignment.name)">Save</button>
 
     </div>
   </body>

@@ -1,11 +1,10 @@
 angular.module('MyModule')
 
-.factory('Assignment', function() {
-    function Assignment(name, grade) {
-        this.name = name;
-        this.grade = grade;
+.factory('Genres', function() {
+    function Genres(songs) {
+        this.songs = songs;
     }
-	return Assignment;
+	return Genres;
 })
 
 .service('GradeCalculation',function(){
@@ -42,10 +41,6 @@ angular.module('MyModule')
 
 	self.addAssignment=function(grade,list){
 		list.push(grade);
-		//don't forget to update the average once a new grade is inputed
-		// self.average=GradeCalculation.calculateAverage(self.assignmentList);
-		// self.grade=GradeCalculation.calculateGrade(self.assignmentList);
-		// self.pass=GradeCalculation.pass(self.assignmentList);
 	}
 
 	self.deleteAssignment=function(nameToDelete,list){
@@ -53,9 +48,6 @@ angular.module('MyModule')
     	if(list[i].name == nameToDelete) {
        	 	list.splice(i, 1);
     	}
-  		// self.average=GradeCalculation.calculateAverage(self.assignmentList);
-		// self.grade=GradeCalculation.calculateGrade(self.assignmentList);
-		// self.pass=GradeCalculation.pass(self.assignmentList);
     }
 	};
 
