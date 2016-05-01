@@ -1,0 +1,52 @@
+Good Job Jiasi it's all working. I have a few comments/optimizations you can make below...
+
+
+
+1)  ng-repeat for folders.  For this example we only had three folders but we could have a lot of folders.  It would be easier to just put all them into an array and use ng-repeat.
+
+2) excellent job on using "self.folderSelected.files.push(self.fileName);".  That was exactly what I was looking for here.  (again you could have used ng-repeat to display the radio buttons)
+
+3)
+	//what you have...
+	<div ng-repeat="f in ctrl.formList"> 
+	       <div ng-class="f.priority">To do #{{$index+1}}</div>
+	       <div ng-class="f.priority" ng-bind="f.name"></div>
+	       <div ng-class="f.priority" ng-bind="f.description"></div>
+	</div>
+
+
+	//optimization: use a single ng-class over the container element.  This means less code and less watchers so it'll be faster overall.
+	<div ng-repeat="f in ctrl.formList" ng-class="f.priority"> 
+	       <div>To do #{{$index+1}}</div>
+	       <div ng-bind="f.name"></div>
+	       <div ng-bind="f.description"></div>
+	</div>
+
+4) this last one you'll discover it'll make your life easier in the long run, but you don't have to do it.  For ng-models its easier to bind different models to different properties on the same object.  Then just push the object into the array when you're ready.
+
+	//what you have:
+	Name:<input type="text" ng-model="ctrl.formName"><br>
+	Description:<input type="text" ng-model="ctrl.formDescription">
+
+		//in the controller:
+		self.addTodo=function(){
+			self.tmp=angular.copy(self.form);
+			self.tmp.name=self.formName;
+			self.tmp.description=self.formDescription;
+			self.tmp.priority=self.prioritySelected;
+			self.formList.push(self.tmp);
+		}
+
+
+	//optimization
+	Name:<input type="text" ng-model="ctrl.todo.formName"><br>
+	Description:<input type="text" ng-model="ctrl.todo.formDescription">
+
+		//then in your controller you can just say
+		self.addTodo=function(){
+			self.formList.push(self.todo);
+			self.todo = {};
+		}
+
+
+5)  Good Job! 10/10
