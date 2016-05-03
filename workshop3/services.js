@@ -1,10 +1,10 @@
 angular.module('MyModule')
 
-.factory('Genres', function() {
-    function Genres(songs) {
-        this.songs = songs;
+.factory('Song', function() {
+    function Song(title) {
+        this.title = title;
     }
-	return Genres;
+	return Song;
 })
 
 .service('GradeCalculation',function(){

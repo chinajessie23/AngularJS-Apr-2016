@@ -1,6 +1,6 @@
 angular.module('MyModule',[])
 
-.controller('MyController',function($scope,Genres,AssignmentChanger,GradeCalculation){
+.controller('MyController',function($scope,Song){
 	var self = this;
 	self.songList=[];
 
@@ -21,36 +21,72 @@ angular.module('MyModule',[])
 		song3:"rock 3"	
 	};
 
-	self.selectSong=function(){
-		self.songList=[];
-		if(self.song1checked){
-				self.songList.push(self.genresSelected.song1);
-					console.log("song1 selcted");
-			}
-		if(self.song2checked){
-				self.songList.push(self.genresSelected.song2);
-				console.log("song2 selcted");}
-		if(self.song3checked){
-			self.songList.push(self.genresSelected.song3);
-			console.log("song3 selcted");}
+	self.songList=[];
 
-		if(!self.song1checked){
-				self.songList.pop(self.genresSelected.song1);
-			console.log("song1 deselcted");}
-		if(!self.song2checked){
-				self.songList.pop(self.genresSelected.song2);
-			console.log("song1 deselcted");}
-		if(!self.song3checked){
-			self.songList.pop(self.genresSelected.song3);
-		console.log("song1 deselcted");}
+	self.selectSong1 = function(){
+		if(self.genresSelected.song1checked && (!self.songList.indexOf(self.genresSelected.song1)> -1)){
+			console.log("song1checked");
+			self.tmp=angular.copy(self.genresSelected.song1);
+		self.songList.push(self.tmp);
+		}
+
+		if(!self.genresSelected.song1checked && (self.songList.indexOf(self.genresSelected.song1)> -1)){
+						console.log("!song1checked");
+
+		self.songList.pop(self.genresSelected.song1);}
+			angular.forEach(self.songList,function(ele){
+			console.log(ele);
+		});
+
 	}
-	console.log("song1 selcted");
-		console.log(self.songList[1]);
-	console.log(self.songList[2]);
+
+	self.selectSong2 = function(){
+		if(self.genresSelected.song2checked && (!self.songList.indexOf(self.genresSelected.song2)> -1)){
+			console.log("song1checked");
+			self.tmp=angular.copy(self.genresSelected.song2);
+		self.songList.push(self.tmp);
+	}
+
+		if(!self.genresSelected.song2checked && (self.songList.indexOf(self.genresSelected.song2)> -1)){
+						console.log("!song2checked");
+
+		self.songList.pop(self.genresSelected.song2);}
+		angular.forEach(self.songList,function(ele){
+			console.log(ele);
+		});
 
 
-	self.save=function(nameToDelete){
- 		self.songList.push(self.song);
+	}
+
+	self.selectSong3 = function(){
+		if(self.genresSelected.song3checked && (!self.songList.indexOf(self.genresSelected.song3)> -1)){
+			console.log("song3checked");
+			self.tmp=angular.copy(self.genresSelected.song3);
+		self.songList.push(self.tmp);
+	}
+
+
+		if(!self.genresSelected.song3checked && (self.songList.indexOf(self.genresSelected.song3)> -1)){
+						console.log("!song1checked");
+
+		self.songList.pop(self.genresSelected.song3);}
+		angular.forEach(self.songList,function(ele){
+			console.log(ele);
+		});
+
+	}
+
+
+
+	self.save=function(){
+
+	angular.forEach(self.songList,function(ele){
+			console.log(ele);
+		})
+	self.genresSelected.song1checked=false;
+	self.genresSelected.song2checked=false;
+	self.genresSelected.song3checked=false;
+
 	};
 });
 

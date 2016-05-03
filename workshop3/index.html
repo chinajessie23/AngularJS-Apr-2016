@@ -22,16 +22,16 @@
     <br>
 
     <div>Please Select your songs:</div>
-         <input type="checkbox" name="song" ng-model="ctrl.song1checked" ng-change="ctrl.selectSong()">{{ctrl.genresSelected.song1}}<br>
-         <input type="checkbox" name="song" ng-model="ctrl.song2checked" ng-change="ctrl.selectSong()">{{ctrl.genresSelected.song2}}<br>
-         <input type="checkbox" name="song" ng-model="ctrl.song3checked" ng-change="ctrl.selectSong()">{{ctrl.genresSelected.song3}}<br>
+         <input type="checkbox" name="song" ng-model="ctrl.genresSelected.song1checked" ng-change="ctrl.selectSong1()">{{ctrl.genresSelected.song1}}<br>
+         <input type="checkbox" name="song" ng-model="ctrl.genresSelected.song2checked" ng-change="ctrl.selectSong2()">{{ctrl.genresSelected.song2}}<br>
+         <input type="checkbox" name="song" ng-model="ctrl.genresSelected.song3checked" ng-change="ctrl.selectSong3()">{{ctrl.genresSelected.song3}}<br>
     <br>
 
     <h3>Song List</h3>
-    <div ng-repeat="f in ctrl.songList">
-        <div ng-bind="f"></div>
-    </div>
-    <button ng-click="save(assignment.name)">Save</button>
+    <div ng-repeat="f in ctrl.songList track by $index">[
+         {title: <div ng-bind="f"></div> }
+    ]</div>
+    <button ng-click="ctrl.save()">Save</button>
 
     </div>
   </body>
