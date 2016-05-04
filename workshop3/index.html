@@ -3,16 +3,15 @@
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
-    <script type="text/javascript" src="services.js"></script>
 
   </head>
 
   <body ng-app="MyModule">
-    <div ng-controller="MyController as ctrl">
+    <div ng-controller="MyController as ctrl" ng-init="ctrl.genresSelected=ctrl.genres1">
         <div>
          Name: <input type="text" ng-model="ctrl.name"><br>
          Age: <input type="text" ng-model="ctrl.age"><br>
-        <input type="checkbox" name="explicit" value="Over 18">Explicit<br>
+        <input type="checkbox" name="explicit" ng-checked="ctrl.over18">Explicit<br>
     </div>
 
     <div>Genres:</div>
@@ -26,12 +25,20 @@
          <input type="checkbox" name="song" ng-model="ctrl.genresSelected.song2checked" ng-change="ctrl.selectSong2()">{{ctrl.genresSelected.song2}}<br>
          <input type="checkbox" name="song" ng-model="ctrl.genresSelected.song3checked" ng-change="ctrl.selectSong3()">{{ctrl.genresSelected.song3}}<br>
     <br>
-
-    <h3>Song List</h3>
-    <div ng-repeat="f in ctrl.songList track by $index">[
-         {title: <div ng-bind="f"></div> }
-    ]</div>
     <button ng-click="ctrl.save()">Save</button>
+
+
+    <div ng-show="ctrl.saved">
+        <h2>Output:</h2>
+        <div>name:{{ctrl.name}}</div>
+        <div>Explicit:{{ctrl.over18}}</div>
+
+
+        <h3>Song List</h3>
+        <div ng-repeat="f in ctrl.songList track by $index">[
+         {title: <div ng-bind="f"></div> }
+        ]</div>
+    </div>
 
     </div>
   </body>

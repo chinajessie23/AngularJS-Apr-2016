@@ -1,8 +1,10 @@
 angular.module('MyModule',[])
 
-.controller('MyController',function($scope,Song){
+.controller('MyController',function($scope){
 	var self = this;
 	self.songList=[];
+	self.over18=false;
+	self.saved=false;
 
   	self.genres1={
 		song1:"rap 1",
@@ -25,61 +27,34 @@ angular.module('MyModule',[])
 
 	self.selectSong1 = function(){
 		if(self.genresSelected.song1checked && (!self.songList.indexOf(self.genresSelected.song1)> -1)){
-			console.log("song1checked");
-			self.tmp=angular.copy(self.genresSelected.song1);
-		self.songList.push(self.tmp);
+			self.songList.push(self.genresSelected.song1);
 		}
 
 		if(!self.genresSelected.song1checked && (self.songList.indexOf(self.genresSelected.song1)> -1)){
-						console.log("!song1checked");
-
-		self.songList.pop(self.genresSelected.song1);}
-			angular.forEach(self.songList,function(ele){
-			console.log(ele);
-		});
-
+			self.songList.splice(self.songList.indexOf(self.genresSelected.song1), 1);}
 	}
 
 	self.selectSong2 = function(){
 		if(self.genresSelected.song2checked && (!self.songList.indexOf(self.genresSelected.song2)> -1)){
-			console.log("song1checked");
-			self.tmp=angular.copy(self.genresSelected.song2);
-		self.songList.push(self.tmp);
-	}
+			self.songList.push(self.genresSelected.song2);
+		}
 
 		if(!self.genresSelected.song2checked && (self.songList.indexOf(self.genresSelected.song2)> -1)){
-						console.log("!song2checked");
-
-		self.songList.pop(self.genresSelected.song2);}
-		angular.forEach(self.songList,function(ele){
-			console.log(ele);
-		});
-
-
+			self.songList.splice(self.songList.indexOf(self.genresSelected.song2), 1);}
 	}
 
 	self.selectSong3 = function(){
 		if(self.genresSelected.song3checked && (!self.songList.indexOf(self.genresSelected.song3)> -1)){
-			console.log("song3checked");
-			self.tmp=angular.copy(self.genresSelected.song3);
-		self.songList.push(self.tmp);
-	}
-
+			self.songList.push(self.genresSelected.song3);
+		}
 
 		if(!self.genresSelected.song3checked && (self.songList.indexOf(self.genresSelected.song3)> -1)){
-						console.log("!song1checked");
-
-		self.songList.pop(self.genresSelected.song3);}
-		angular.forEach(self.songList,function(ele){
-			console.log(ele);
-		});
-
+			self.songList.splice(self.songList.indexOf(self.genresSelected.song3), 1);
+		}
 	}
 
-
-
 	self.save=function(){
-
+	self.saved=true;
 	angular.forEach(self.songList,function(ele){
 			console.log(ele);
 		})
