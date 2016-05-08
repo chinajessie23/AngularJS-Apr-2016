@@ -1,0 +1,37 @@
+Good job Jiasi, it seems to be working correctly and you successfully used factories/services. 20/20  Some notes below
+
+1)
+	/* 
+		really the time when we want to create a factory is when we want something to hold some data *and* have some
+		functions that operate on that data. It's not bad, but it's just not helping you very much to this.
+
+		I would consider pulling more information into the factory like the average/grade/passing etc.
+	*/
+	.factory('Assignment', function() {
+	    function Assignment(name, grade) {
+	        this.name = name;
+	        this.grade = grade;
+	    }
+		return Assignment;
+	})
+
+
+
+2)
+
+	/*
+		The calculate grade function is calculating the average every single if
+		statement.  This is ineffiencent.  You've already calculated the average
+		from the function before this one.  You can just pass that average in and use
+		it.
+	*/
+
+	self.calculateGrade=function(assignmentList){
+		if(self.calculateAverage(assignmentList)>90)
+			return 'A';
+		else if(self.calculateAverage(assignmentList)>80)
+			return 'B';
+		else if (self.calculateAverage(assignmentList)>70)
+			return 'C';
+		else return 'F';
+	};
