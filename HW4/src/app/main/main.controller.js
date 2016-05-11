@@ -24,10 +24,9 @@ angular.module('sampleNode')
     var resourceObject = TodoAddResource;
 
     resourceObject.addTodos(
-  {name: todo.name, description: todo.description}
+    {name: todo.name, description: todo.description}
       , function onSuccess(response) {
-        self.todos.push(todo.name);
-
+        self.todos.push(self.userTodo);
         console.log('SUCCESS: ', response)
       }, function onError(errorMessage) {
         console.log('ERROR: ', errorMessage)
@@ -42,8 +41,9 @@ angular.module('sampleNode')
     resourceObject.getTodoDetails(
         {id:todo._id}
       , function onSuccess(response) {
-        self.userTodo = response;
+        self.someTodo = todo;
 
+        self.userTodo = response;
         console.log('SUCCESS: ', response)
       }, function onError(errorMessage) {
         console.log('ERROR: ', errorMessage)
@@ -51,17 +51,18 @@ angular.module('sampleNode')
 
   };
 
-//update has issues regarding { [Error: socket hang up] code: 'ECONNRESET' }
   self.updateTodo = function(todo) {
- var resourceObject = TodoUpdateResource;
-  //   resourceObject.updateTodoRequest(
-  // {name: todo.name, description: todo.description}
-  //     , function onSuccess(response) {
-  //       // self.userTodo = todo;
-  //       console.log('SUCCESS: ', response)
-  //     }, function onError(errorMessage) {
-  //       console.log('ERROR: ', errorMessage)
-  //     })
+  var resourceObject = TodoUpdateResource;
+    resourceObject.updateTodoRequest(
+      {_id:todo._id, name: todo.name, description: todo.description}
+      , function onSuccess(response) {
+         self.someTodo.name = todo.name;
+        self.isEditing=false;
+        self.userTodo=null;
+        console.log('SUCCESS: ', response)
+      }, function onError(errorMessage) {
+        console.log('ERROR: ', errorMessage)
+      })
   };
 
   self.cancelUpdate = function() {
