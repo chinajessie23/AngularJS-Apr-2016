@@ -26,6 +26,7 @@ angular.module('sampleNode')
     resourceObject.addTodos(
     {name: todo.name, description: todo.description}
       , function onSuccess(response) {
+         self.userTodo._id = response._id;
         self.todos.push(self.userTodo);
         console.log('SUCCESS: ', response)
       }, function onError(errorMessage) {
