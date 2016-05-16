@@ -1,0 +1,37 @@
+
+<div class="container">
+
+	<pre>
+	{{ ctrl.myForm | json }}
+	</pre>
+
+  <h1 ng-bind="ctrl.greeting"></h1>
+
+  <form name="ctrl.myForm" ng-submit= "ctrl.submitTheForm()">
+  	<input type="checkbox" ng-model="ctrl.usernamRequired">User Name Required</br/>
+
+  		<input type="text" ng-model="ctrl.username" ng-required="ctrl.usernamRequired"></br/>
+  		<!-- type email validates form to be an actual email address -->
+  		<input type="email" ng-model="ctrl.email" placeholder="email"></br/>
+
+  		<!-- format of phone number (###) ###-#### -->
+  		<!-- the ^ in front indicates start matching on first character -->
+  		<input type="text" ng-model="ctrl.phone" name="phoneInput" placeholder="phone"
+  		     ng-pattern="ctrl.phoneExp"></br/>
+  		<div ng-show ="ctrl.myForm.phoneInput.$invalid">Please enter a valid phone number </div>
+
+      <!-- <input type="submit" value="submit my form" ng-disabled="ctrl.myForm.$invalid"></br/> -->
+
+      <!-- save <first parameter> as model, display select as <second parameter>, for .... -->
+      <select ng-model = "ctrl.userState" ng-options="key as value for (key, value) in ctrl.states">
+   
+      </select>
+
+      <pre>
+      {{ ctrl.userState| json }}
+  </pre>
+
+
+  </form>
+
+</div>
