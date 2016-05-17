@@ -6,23 +6,23 @@
     .config(routerConfig);
 
   /** @ngInject */
-  function routerConfig($stateProvider, $urlRouterProvider) {
+  function routerConfig($stateProvider, $urlRouterProvider, STATES) {
     $stateProvider
-      .state('home', {
+      .state(STATES.KHomeState, {
         url: '/',
         templateUrl: 'app/home/partials/home.main.html',
         controller: 'HomeController as ctrl',
-      });
+      })
 
-       .state('store', {
-        url: '/',
-        templateUrl: 'app/home/partials/store.main.html',
+       .state(STATES.KStoreState, {
+        url: '/store',
+        templateUrl: 'app/store/partials/store.main.html',
         controller: 'StoreController as ctrl',
-      });
+      })
 
-        .state('contact', {
-        url: '/',
-        templateUrl: 'app/home/partials/contact.main.html',
+        .state(STATES.KContactState, {
+        url: '/contact',
+        templateUrl: 'app/contact/partials/contact.main.html',
         controller: 'ContactController as ctrl',
       });
 

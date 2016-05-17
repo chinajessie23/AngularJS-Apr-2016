@@ -14,15 +14,16 @@
           creationDate: '='
       },
       controller: NavbarController,
-      controllerAs: 'vm',
+      controllerAs: 'ctrl',
       bindToController: true
     };
 
     return directive;
 
     /** @ngInject */
-    function NavbarController() {
+    function NavbarController(STATES) {
       var self = this;
+      self.states = STATES;
     }
   }
 
