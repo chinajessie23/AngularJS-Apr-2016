@@ -1,1 +1,1 @@
-angular.module('MyApp.Store',[]);
+angular.module('MyApp.Store', []);

@@ -23,7 +23,7 @@
     /** @ngInject */
     function NavbarController(STATES) {
       var self = this;
-      self.states = STATES;
+      self.navStates = STATES;
     }
   }
 

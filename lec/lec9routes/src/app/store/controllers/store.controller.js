@@ -1,8 +1,7 @@
 angular.module('MyApp.Store')
 
-.controller('StoreController',function(){
+.controller('StoreController', function(STATES) {
 	var self = this;
-		console.log('StoreController initialized');
-
-	self.name = 'MyStore'
+	self.navStates = STATES;
+	console.log('StoreController initialized');
 });

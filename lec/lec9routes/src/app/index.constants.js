@@ -4,14 +4,20 @@
 
   angular
     .module('template')
-    .constant('STATES',{
-	KHomeState:'home',
-	KContactState:'contact',
-	KStoreState:'store',
+    .constant('STATES', {
+    	kHomeState: 'home',
+    	kContactsState: 'contacts',
+    	kStoreState: 'store',
 
-	//for store ui-views
-	KShoesState: 'store.shoes',
-	KPantsState: 'store.pants',
-	KShirtState: 'store.shirts',
-});
+    	// Contacts child states
+    	kCEOState: 'contacts.ceo',
+    	kPresidentState: 'contacts.president',
+    	kFounderState: 'contacts.founder',
+
+    	// Store child states
+    	kShoesState: 'store.shoes',
+    	kPantsState: 'store.pants',
+    	kShirtsState: 'store.shirts'
+    });
+
 })();

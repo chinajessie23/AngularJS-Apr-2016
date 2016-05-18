@@ -8,13 +8,9 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
       <ul class="nav navbar-nav">
-        <li ui-sref-active="active"><a ui-sref="{{ctrl.states.KHomeState}}">Home</a></li>
-        <li ui-sref-active="active"><a ui-sref="{{ctrl.states.KStoreState}}">Store</a></li>
-        <li ui-sref-active="active"><a ui-sref="{{ctrl.states.KContactState}}">Contact</a></li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right acme-navbar-text">
-        <li>Application was created {{ vm.relativeDate }}.</li>
+        <li ui-sref-active="active"><a ui-sref="{{ctrl.navStates.kHomeState}}">Home</a></li>
+        <li ui-sref-active="active"><a ui-sref="{{ctrl.navStates.kStoreState}}">Store</a></li>
+        <li ui-sref-active="active"><a ui-sref="{{ctrl.navStates.kContactsState}}">Contact</a></li>
       </ul>
     </div>
   </div>

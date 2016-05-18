@@ -38,4 +38,15 @@ angular.module('sampleNode')
 		}
 	});
 	return resourceObject;
-});
+})
+
+.factory('YelpGetResource', function($resource) {
+	var resourceObject = $resource('/api/yelp/search', null, {
+		updateTodoRequest: {
+			method: 'GET'
+			isArray: true
+		}
+	});
+	return resourceObject;
+})
+;

@@ -1,8 +1,7 @@
 angular.module('MyApp.Home')
 
-.controller('HomeController',function(){
+.controller('HomeController', function() {
 	var self = this;
+	self.name = 'George'
 	console.log('HomeController initialized');
-
-	self.name = 'Jiasi'
 });
