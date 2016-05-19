@@ -40,11 +40,11 @@ angular.module('sampleNode')
 	return resourceObject;
 })
 
-.factory('YelpGetResource', function($resource) {
+.factory('YelpResource', function($resource) {
 	var resourceObject = $resource('/api/yelp/search', null, {
-		updateTodoRequest: {
+		getFoodRequest: {
 			method: 'GET'
-			isArray: true
+			// isArray: true
 		}
 	});
 	return resourceObject;

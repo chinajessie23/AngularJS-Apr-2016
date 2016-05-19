@@ -2,7 +2,7 @@
 
 angular.module('sampleNode')
 
-.controller('MainCtrl', function(TodoAddResource, TodoListResource, TodoDetailsResource, TodoUpdateResource) {
+.controller('MainCtrl', function(TodoAddResource, TodoListResource, TodoDetailsResource, TodoUpdateResource,YelpResource) {
   var self = this;
 
 
@@ -65,6 +65,20 @@ angular.module('sampleNode')
         console.log('ERROR: ', errorMessage)
       })
   };
+
+   self.getSomeFood = function(location) {
+  var resourceObject = YelpResource;
+    resourceObject.getFoodRequest(
+      {location:location, term: 'food'}
+      , function onSuccess(response) {
+        self.isEditing=false;
+        self.userTodo=null;
+        console.log('SUCCESS: ', response)
+      }, function onError(errorMessage) {
+        console.log('ERROR: ', errorMessage)
+      })
+  };
+
 
   self.cancelUpdate = function() {
     self.isEditing=false;

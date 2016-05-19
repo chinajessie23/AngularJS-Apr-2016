@@ -3,6 +3,10 @@
   <div class="row">
     <div class="col-xs-6">
       <h1>Todos List</h1>
+       <div>
+        <label>Location: </label><input type="text" ng-model="ctrl.location"></input>
+        <button class="btn btn-primary" ng-click="ctrl.getSomeFood(ctrl.location)">Get Food</button>
+      </div>
       <div ng-repeat="todo in ctrl.todos">
           <label>Name: </label><span ng-bind="todo.name"></span><button class="btn btn-default btn-sm" ng-click="ctrl.editTodo(todo)">Edit</button>
       </div>
@@ -25,8 +29,7 @@
         <div ng-show="ctrl.isEditing">
           <button class="btn btn-primary" ng-click="ctrl.updateTodo(ctrl.userTodo)">Update</button>
           <button class="btn btn-default" ng-click="ctrl.cancelUpdate()">Cancel</button>
-        </div>
-        
+        </div>        
       </div>
     </div>
   </div>
