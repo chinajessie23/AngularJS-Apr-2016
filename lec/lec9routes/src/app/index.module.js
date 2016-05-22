@@ -9,7 +9,8 @@
 	    'ui.bootstrap',
 	    'MyApp.Home',
 	    'MyApp.Contacts',
-	    'MyApp.Store'
+	    'MyApp.Store',
+	    'MyApp.Common'
 	]);
 
 })();

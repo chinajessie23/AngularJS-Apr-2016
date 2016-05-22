@@ -6,9 +6,8 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider) {
-    // Enable log
-    $logProvider.debugEnabled(true);
+  function config(CurrentUserProvider) {
+  	CurrentUserProvider.setUser('Jiasi');
   }
 
 })();

@@ -4,6 +4,8 @@
 
   angular
     .module('template')
+
+
     .constant('STATES', {
     	kHomeState: 'home',
     	kContactsState: 'contacts',

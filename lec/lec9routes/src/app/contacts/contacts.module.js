@@ -1,1 +1,1 @@
-angular.module('MyApp.Contacts', []);
+angular.module('MyApp.Contacts', ['MyApp.Common']);

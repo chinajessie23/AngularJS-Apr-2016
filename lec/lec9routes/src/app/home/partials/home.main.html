@@ -1,3 +1,15 @@
 <h1>Welcome to the Home page</h1>
 
 <h3>Wecome {{ctrl.name}}</h3>
+
+<h4>Current User: {{ctrl.loggedInUser}}</h4>
+
+<input type="text" ng-model="ctrl.user.fname"><br/>
+<input type="text" ng-model="ctrl.user.lname">
+
+<!-- a button that goes to details page -->
+</br></br></br></br></br>
+<div>
+	<label>Location: </label><input type="text" ng-model="ctrl.location"></input>
+    <button class="btn btn-primary" ng-click="ctrl.getSomeFood(ctrl.location)">Get Food</button>
+</div>

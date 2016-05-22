@@ -23,7 +23,7 @@
     })
     .state(STATES.kStoreState, {
       url: '/store',
-      // template: '<h3>Hello world</h3>'
+      // template: '<h3>Hello world</h3>',
       templateUrl: 'app/store/partials/store.main.html',
       controller: 'StoreController as ctrl'
     })
@@ -63,9 +63,7 @@
           templateUrl: 'app/store/partials/pantsDetails.html',
         }
       }
-    })
-
-    ;
+    });
 
 
 
