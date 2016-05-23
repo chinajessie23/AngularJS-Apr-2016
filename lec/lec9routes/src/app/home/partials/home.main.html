@@ -10,6 +10,5 @@
 <!-- a button that goes to details page -->
 </br></br></br></br></br>
 <div>
-	<label>Location: </label><input type="text" ng-model="ctrl.location"></input>
-    <button class="btn btn-primary" ng-click="ctrl.getSomeFood(ctrl.location)">Get Food</button>
+    <button ui-sref="{{ctrl.navStates.kStoreState}}" class="btn btn-primary" ng-click="ctrl.getSomeFood(ctrl.location)"> I'm hungry </button>
 </div>

@@ -6,6 +6,21 @@
 	<li><a ui-sref="{{ctrl.navStates.kShirtsState}}">Shirts</a></li>
 </ul>
 
+<!-- a button that goes to details page -->
+</br></br>
+<div>
+	<label>Location: </label><input type="text" ng-model="ctrl.location"></input>
+    <button  ui-sref="{{ctrl.navStates.kStoreState}}" class="btn btn-primary" ng-click="ctrl.onAddressChange(ctrl.location)">Get Food</button>
+</div>
+</br></br></br>
+
+
+<div ng-repeat="res in ctrl.restaurants track by $index">
+		<li><a ui-sref="{{ctrl.navStates.kShoesState}}">{{res.name}}</a></li>
+
+		<!-- <label ui-sref="{{ctrl.navStates.kShoesState}}" ng-bind="res.name"></label> -->
+</div>
+</br></br></br>
 
 <div ui-view="listView"
 	 style="width:30%; height: 300px; float:left; background-color: red;">
@@ -13,3 +28,4 @@
 <div ui-view="detailView"
 	 style="width:70%; height: 300px; float:left; background-color: yellow;">
 </div>
+
